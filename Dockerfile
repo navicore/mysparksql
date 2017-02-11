@@ -1,8 +1,12 @@
-FROM java:8
+FROM navicore/spark:2.0.2a
 
 EXPOSE 4040
 
+RUN mkdir -p /app
+
 ADD target/scala-2.11/*.jar /app/
+
 WORKDIR /app
-ENTRYPOINT ["java", "-Xms500m", "-Xmx500m", "-jar", "/app/player.jar"]
+
+ENTRYPOINT ["/opt/spark/bin/spark-submit"]
 
