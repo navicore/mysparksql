@@ -10,6 +10,14 @@ spec:
       containers:
       - name: mysparksql
         image: navicore/mysparksql
-        args: []
+        env: 
+        - name: CASSANDRA_HOST
+          value: "<YOUR CASSANDRA HOST>"
+        - name: SPARK_MASTER
+          value: "spark://<YOUR SPARK MASTER>"
+        - name: KEYSPACE
+          value: "<YOUR KEYSPACE>"
+        - name: TABLE
+          value: "<YOUR TABLE>"
       restartPolicy: Never
 
