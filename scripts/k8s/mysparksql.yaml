@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: player
+spec:
+  template:
+    metadata:
+      name: player
+    spec:
+      imagePullSecrets:
+        - name: bitsdock
+      containers:
+      - name: player
+        image: bitsdock/player
+        args: ["--topic", "<YOUR TOPIC>", "--account", "<YOUR STORAGE ACCOUNT>", "--key", "<YOUR STORAGE ACCOUNT KEY>", "--file", "wasbs://<YOUR CONTAINER>@<YOUR STORAGE ACCOUNT>.blob.core.windows.net/<YOUR FILEPATH>", "--broker-list", "kafka-1:9092"]
+      restartPolicy: Never
+
