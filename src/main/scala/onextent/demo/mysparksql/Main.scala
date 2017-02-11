@@ -13,11 +13,14 @@ object Main extends LazyLogging with Query {
 
     val sparkConf = new SparkConf()
       .setAppName("bits.MySparkSQL")
-      .set("spark.sql.shuffle.partitions", "8")
-      .setIfMissing("spark.master", "local[*]") //for running from intellij
+      //.set("spark.sql.shuffle.partitions", "8")
+      .set("spark.cores.max", "4")
+      .set("spark.executor.memory", "4g")
+      .set("spark.dynamicAllocation.enabled", "false")
+      .setIfMissing("spark.master", "local[*]")
       .set("spark.cassandra.connection.host", config.getString("cassandraHost"))
-      .set("spark.cassandra.auth.username", "cassandra")
-      .set("spark.cassandra.auth.password", "cassandra")
+      .set("spark.cassandra.auth.username", config.getString("cassandraUser"))
+      .set("spark.cassandra.auth.password", config.getString("cassandraPwd"))
 
     val sc = new SparkContext(sparkConf)
 
