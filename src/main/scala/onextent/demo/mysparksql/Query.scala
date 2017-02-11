@@ -13,7 +13,7 @@ trait Query extends LazyLogging {
     sqlContext.setConf("default:test/spark.cassandra.input.split.size_in_mb",
                        "128")
 
-    val SHOW_ROWS = 5
+    val howRows = 5
 
     logger.info(s"running query")
 
@@ -23,7 +23,7 @@ trait Query extends LazyLogging {
                    "keyspace" -> s"${config.getString("keyspace")}"))
       .load()
 
-    df.show(SHOW_ROWS)
+    df.show(howRows)
 
   }
 

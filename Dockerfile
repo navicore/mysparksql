@@ -1,10 +1,11 @@
 FROM navicore/spark:2.0.2a
+MAINTAINER ed@onextent.com
 
 EXPOSE 4040
 
 RUN mkdir -p /app
 
-ADD target/scala-2.11/*.jar /app/
+COPY target/scala-2.11/*.jar /app/
 
 WORKDIR /app
 
