@@ -24,6 +24,7 @@ trait Query extends LazyLogging {
       .load()
 
     df.show(howRows)
+    logger.info(s"number of rows ==============> ${df.count()}")
 
   }
 
