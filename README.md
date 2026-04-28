@@ -1,3 +1,8 @@
+<!-- ghmig:moved -->
+> **This repository has moved to [https://git.navicore.tech/navicore/mysparksql](https://git.navicore.tech/navicore/mysparksql).**
+>
+> The GitHub copy is archived and no longer maintained.
+
 # mysparksql
 
 a minimal code example of reading from cassandra via spark 2.x
@@ -41,4 +46,3 @@ spec:
           value: "<YOUR TABLE>"
       restartPolicy: Never
 ```
-
